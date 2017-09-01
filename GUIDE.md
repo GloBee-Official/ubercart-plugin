@@ -1,7 +1,7 @@
-# Using the BitPay plugin for Drupal 6 Ubercart
+# Using the GloBee plugin for Drupal 6 Ubercart
 
 ## Prerequisites
-You must have a BitPay merchant account to use this plugin.  It's free to [sign-up for a BitPay merchant account](https://bitpay.com/start).
+You must have a GloBee merchant account to use this plugin.  It's free to [sign-up for a GloBee merchant account](https://globee.com/).
 
 
 ## Installation
@@ -10,16 +10,16 @@ Copy these files into sites/all/modules/ in your Drupal directory.
 
 ## Configuration
 
-1. Create "Legacy API Key" in your BitPay merchant account dashboard:
-  * Log into https://bitpay.com with your account username/password.
+1. Create "Legacy API Key" in your GloBee merchant account dashboard:
+  * Log into https://globee.com with your account username/password.
   * On the left side of the screen, choose **Settings**.
   * The menu will expand downward revealing a list of options. Choose the **Legacy API Keys** option.
   * On the right side of the page, click on the grey **+ Add New API Key** button to instantly create a new one.
   * Select and copy the entire string for the new API Key ID that you just created. It will look something like this: 43rp4rpa24d6Bz4BR44j8zL44PrU4npVv4DtJA4Kb8.
-2. Now, log into your Ubercart administration area and go to **Administer > Site Building > Modules** to verify that the BitPay module is enabled under the **Ubercart - payment** section.
-3. Under **Store Administration > Configuration > Payment Settings > Payment Methods**, enable the **BitPay** payment method, and then go to the BitPay settings menu.
+2. Now, log into your Ubercart administration area and go to **Administer > Site Building > Modules** to verify that the GloBee module is enabled under the **Ubercart - payment** section.
+3. Under **Store Administration > Configuration > Payment Settings > Payment Methods**, enable the **GloBee** payment method, and then go to the GloBee settings menu.
 4. Enter your Legacy API Key that you created & copied in Step 2 of these directions under the **Administrator** settings dropdown menu, and enter other settings as desired.
-5. Select a transaction speed under General settings. This setting determines how quickly you will receive a payment confirmation from BitPay after an invoice is paid by a customer.
+5. Select a transaction speed under General settings. This setting determines how quickly you will receive a payment confirmation from GloBee after an invoice is paid by a customer.
   * High: A confirmation is sent instantly once the payment has been received by the gateway.
   * Medium: A confirmation is sent after 1 block confirmation (~10 mins) by the bitcoin network.
   * Low: A confirmation is sent after the usual 6 block confirmations (~1 hour) by the bitcoin network.

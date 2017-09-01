@@ -1,21 +1,21 @@
 {
-    "name": "bitpay/ubercart",
-    "description": "BitPay payment plugin for Drupal 6 Ubercart",
+    "name": "GloBee-Official/ubercart",
+    "description": "GloBee payment plugin for Drupal 6 Ubercart",
     "type": "ubercart-plugin",
     "keywords": ["ubercart","drupal6","plugin","payment","ecommerce","bitcoin","bitpay"],
-    "homepage": "https://github.com/bitpay/ubercart-plugin",
+    "homepage": "https://github.com/GloBee-Official/ubercart-plugin",
     "license": "MIT",
     "support": {
-        "email": "support@bitpay.com",
-        "issues": "https://github.com/bitpay/ubercart-plugin/issues",
-        "source": "https://github.com/bitpay/ubercart-plugin"
+        "email": "support@globee.com",
+        "issues": "https://github.com/GloBee-Official/ubercart-plugin/issues",
+        "source": "https://github.com/GloBee-Official/ubercart-plugin"
     },
     "minimum-stability": "stable",
     "authors": [
         {
-            "name": "BitPay Integrations Development Team",
-            "email": "integrations@bitpay.com",
-            "homepage": "https://bitpay.com/integrations"
+            "name": "GloBee Integrations Development Team",
+            "email": "integrations@globee.com",
+            "homepage": "https://globee.com/integrations"
         }
     ],
     "require": {

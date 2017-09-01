@@ -63,7 +63,7 @@ function uc_bitpay_notification()
         if (substr($notify, 0, strlen($checkerr)) == $checkerr)
         {
             // first construct the alert to email
-            $email_text  = t("Your website has just received a Bitpay invoice status notification with what appears to be an invalid API key. You will want to have your web developer investigate this situation if you are unsure of the reason behind it (such as recently changed API keys.)");
+            $email_text  = t("Your website has just received a GloBee invoice status notification with what appears to be an invalid API key. You will want to have your web developer investigate this situation if you are unsure of the reason behind it (such as recently changed API keys.)");
             $email_text  = wordwrap($email_text, 65, "\r\n");
             $email_text .= "\r\n";
             // send the email
@@ -100,7 +100,7 @@ function uc_bitpay_notification()
         if (variable_get('uc_bitpay_copy_notify_emails', FALSE))
         {
             // construct an alert to email
-            $email_text = "Bitpay " .
+            $email_text = "GloBee " .
                 t("has just updated an invoice status as: 'paid'. This indicates that full payment has been made on the invoice, but the bitcoin transaction has not yet been confirmed.");
             $email_text = wordwrap($email_text, 65, "\r\n");
             $email_text .= "\r\n\r\n" .
@@ -133,14 +133,14 @@ function uc_bitpay_notification()
         uc_payment_enter($order_id, 'bitpay', $notify['price'], $uid, NULL, '', time());
 
         // note the payment confirmation
-        uc_order_comment_save($order_id, 0, t("Customer's bitcoin payment has confirmed according to the transaction speed you have set for Bitpay."), 'admin');
+        uc_order_comment_save($order_id, 0, t("Customer's bitcoin payment has confirmed according to the transaction speed you have set for GloBee."), 'admin');
 
         // if we're copying notification emails, here's where we do one
         if (variable_get('uc_bitpay_copy_notify_emails', FALSE))
         {
             // construct an alert to email
-            $email_text = "Bitpay " .
-                t("has just updated an invoice status as: 'confirmed'. This indicates that the payment has been confirmed according to your Bitpay settings, and fulfillment of the order should occur.");
+            $email_text = "GloBee " .
+                t("has just updated an invoice status as: 'confirmed'. This indicates that the payment has been confirmed according to your GloBee settings, and fulfillment of the order should occur.");
             $email_text = wordwrap($email_text, 65, "\r\n");
             $email_text .= "\r\n\r\n" .
                 t("Invoice") . " ID: " . $notify['id'] . "\r\n" .
@@ -176,8 +176,8 @@ function uc_bitpay_notification()
         if (variable_get('uc_bitpay_copy_notify_emails', FALSE))
         {
             // construct an alert to email
-            $email_text = "Bitpay " .
-                t("has just updated an invoice status as: 'complete'. This indicates that the sale has been fully confirmed on the bitcoin network and your Bitpay merchant account has been credited.");
+            $email_text = "GloBee " .
+                t("has just updated an invoice status as: 'complete'. This indicates that the sale has been fully confirmed on the bitcoin network and your GloBee merchant account has been credited.");
             $email_text = wordwrap($email_text, 65, "\r\n");
             $email_text .= "\r\n\r\n" .
                 t("Invoice") . " ID: " . $notify['id'] . "\r\n" .
@@ -210,9 +210,9 @@ function uc_bitpay_notification()
     case 'invalid':
 
         // construct an alert to email
-        $email_text = "Bitpay " .
+        $email_text = "GloBee " .
             t("has just updated an invoice status as: '") . $notify['status'] .
-            t("'. Your payments department should be informed of this status update; Bitpay may need to be contacted to confirm that the merchant account is credited after the payment eventually confirms on the bitcoin network.");
+            t("'. Your payments department should be informed of this status update; GloBee may need to be contacted to confirm that the merchant account is credited after the payment eventually confirms on the bitcoin network.");
         $email_text = wordwrap($email_text, 65, "\r\n");
         $email_text .= "\r\n\r\n" .
             t("Invoice") . " ID: " . $notify['id'] . "\r\n" .
@@ -221,7 +221,7 @@ function uc_bitpay_notification()
         // send the email
         $success = uc_bitpay_mail($email_text, 3); // priority of 3 (normal)
 
-        uc_order_comment_save($order_id, 0, t("The Bitpay invoice for this order has been marked INVALID. You may neet to contact Bitpay to resolve the issue."), 'admin');
+        uc_order_comment_save($order_id, 0, t("The GloBee invoice for this order has been marked INVALID. You may neet to contact GloBee to resolve the issue."), 'admin');
         break;
     // NEW: This should never be sent as a notification; all invoices
     // are created with this status, and invoices do not revert back to
@@ -237,7 +237,7 @@ function uc_bitpay_notification()
     // address of this unusual status notification.
     default:
         // construct an alert to email
-        $email_text = "Bitpay " .
+        $email_text = "GloBee " .
             t("has just sent an invoice status notification with an unusal status of: '") .
             $notify['status'] . t("' to your website. Your website developer should be informed of this status update to ascertain what further action, if any, needs to be taken.");
         $email_text = wordwrap($email_text, 65, "\r\n");
@@ -269,14 +269,14 @@ function uc_bitpay_mail($txt, $priority = 3)
         // prepare to construct the message array we need
         $m = array();
         // include the preface to the body of the email
-        $preface = t("ATTENTION: This is an alert from the Bitpay module of your website.") . "\r\n\r\n";
+        $preface = t("ATTENTION: This is an alert from the GloBee module of your website.") . "\r\n\r\n";
         // establish the body of the email
         $m['body'] = $preface . $txt;
         // get the 'From' address
         $from = _get_bp_email_from_address();
         // setup the other email elements
         $m['id']      = 'uc_bitpay_alert';
-        $m['subject'] = t('Bitpay Invoice Status Update Notification');
+        $m['subject'] = t('GloBee Invoice Status Update Notification');
         $m['to']      = $to;
         $m['from']    = $from;
         // finalize the email headers

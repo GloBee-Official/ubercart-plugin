@@ -2,26 +2,24 @@
 
 This is a Community-supported project.
 
-If you are interested in becoming a maintainer of this project, please contact us at integrations@bitpay.com. Developers at BitPay will attempt to work along the new maintainers to ensure the project remains viable for the foreseeable future.
+If you are interested in becoming a maintainer of this project, please contact us at integrations@globee.com. Developers at GloBee will attempt to work along the new maintainers to ensure the project remains viable for the foreseeable future.
 
 # Description
 
-Bitcoin payment plugin for Drupal 6 Ubercart using the bitpay.com service.
-
-[![Build Status](https://travis-ci.org/bitpay/ubercart-plugin.svg?branch=master)](https://travis-ci.org/bitpay/ubercart-plugin)
+Bitcoin payment plugin for Drupal 6 Ubercart using the globee.com service.
 
 ## Quick Start Guide
 
-To get up and running with our plugin quickly, see the GUIDE here: https://github.com/bitpay/ubercart-plugin/blob/master/GUIDE.md
+To get up and running with our plugin quickly, see the GUIDE here: https://github.com/GloBee-Official/ubercart-plugin/blob/master/GUIDE.md
 
 # Support
 
-**BitPay Supprt:**
+**GloBee Supprt:**
 
-* [Github Issues](https://github.com/bitpay/ubercart-plugin/issues)
+* [Github Issues](https://github.com/GloBee-Official/ubercart-plugin/issues)
   * Open an Issue if you are having issues with this plugin
-* [Support](https://help.bitpay.com)
-  * Checkout the BitPay support site
+* [Support](https://help.globee.com)
+  * Checkout the GloBee support site
 
 **Ubercart Support:**
 
@@ -45,7 +43,7 @@ To get up and running with our plugin quickly, see the GUIDE here: https://githu
 
 **TIP**: When contacting support it will help us is you provide:
 
-* Shopping Cart and BitPay Plugin Version
+* Shopping Cart and GloBee Plugin Version
 * Other plugins you have installed
   * Some plugins do not play nice
 * Configuration settings for the plugin (Most merchants take screen grabs)
@@ -55,7 +53,7 @@ To get up and running with our plugin quickly, see the GUIDE here: https://githu
 
 ## Contribute
 
-Would you like to help with this project?  Great!  You don't have to be a developer, either.  If you've found a bug or have an idea for an improvement, please open an [issue](https://github.com/bitpay/ubercart-plugin/issues) and tell us about it.
+Would you like to help with this project?  Great!  You don't have to be a developer, either.  If you've found a bug or have an idea for an improvement, please open an [issue](https://github.com/GloBee-Official/ubercart-plugin/issues) and tell us about it.
 
 If you *are* a developer wanting contribute an enhancement, bugfix or other patch to this project, please fork this repository and submit a pull request detailing your changes. 
 
@@ -63,4 +61,4 @@ This open source project is released under the [MIT license](http://opensource.o
 
 ## License
 
-Please refer to the [LICENSE](https://github.com/bitpay/ubercart-plugin/blob/master/LICENSE) file that came with this project.
+Please refer to the [LICENSE](https://github.com/GloBee-Official/ubercart-plugin/blob/master/LICENSE) file that came with this project.

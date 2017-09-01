@@ -35,7 +35,7 @@
 require_once("bp_lib.php");
 require_once("uc_bitpay.pages.inc");
 
-define ('BITPAY_WEBSITE', "https://bitpay.com");
+define ('BITPAY_WEBSITE', "https://globee.com");
 define ('BITPAY_SMALL_LOGO_FILE', "/img/bitpay23.png");
 define ('BITCOIN_ACCEPTED_LOGO_FILE', "/bitcoin-accepted.png");
 define ('BITCOIN_ACCEPTED_LOGO_PATH', base_path() . drupal_get_path('module', 'uc_bitpay') . BITCOIN_ACCEPTED_LOGO_FILE);
@@ -63,18 +63,18 @@ function uc_bitpay_settings_form()
 	);
 	$form['admin']['uc_bitpay_current_api_key'] = array(
 		'#type'          => 'textfield',
-		'#title'         => t('Current Bitpay API key'),
+		'#title'         => t('Current GloBee API key'),
 		'#default_value' => variable_get('uc_bitpay_current_api_key', ''),
 		'#description'   =>
-			t('Your current Bitpay API key should be entered here. This key must be kept private. To view or edit your API keys, please go to your merchant account at ') . '<a href="' . BITPAY_WEBSITE . '" target="_blank">' . t("Bitpay's website") . '</a>.',
+			t('Your current GloBee API key should be entered here. This key must be kept private. To view or edit your API keys, please go to your merchant account at ') . '<a href="' . BITPAY_WEBSITE . '" target="_blank">' . t("GloBee's website") . '</a>.',
 	);
 	$form['admin']['uc_bitpay_prior_api_key'] = array(
 		'#type'        => 'item',
-		'#title'       => t('Prior Bitpay API key'),
+		'#title'       => t('Prior GloBee API key'),
 		'#value'       => "'<i>" . variable_get('uc_bitpay_prior_api_key', '') . "</i>'",
 		'#description' =>
 			t('This is retained on the chance that you change API keys while ') .
-			t('Bitpay invoices are still pending. To clear, change the current ') .
+			t('GloBee invoices are still pending. To clear, change the current ') .
 			t('API key to a random number and save the changes, then re-enter ') .
 			t('the current API key again and save the changes again.'),
 	);
@@ -83,11 +83,11 @@ function uc_bitpay_settings_form()
 		'#title'         => t('Notification email address'),
 		'#default_value' => variable_get('uc_bitpay_notify_email', ''),
 		'#description'   =>
-			t('Email address to receive Bitpay invoice notifications. Primarily for debugging or to be informed of any bitcoin payments. Please use all lowercase when entering the email address.'),
+			t('Email address to receive GloBee invoice notifications. Primarily for debugging or to be informed of any bitcoin payments. Please use all lowercase when entering the email address.'),
 	);
 	$form['admin']['uc_bitpay_notify_email_active'] = array(
 		'#type'          => 'checkbox',
-		'#title'         => t('Allow Bitpay invoice notifications to be emailed.'),
+		'#title'         => t('Allow GloBee invoice notifications to be emailed.'),
 		'#default_value' => variable_get('uc_bitpay_notify_email_active', FALSE),
 	);
 	$form['admin']['uc_bitpay_alert_email'] = array(
@@ -95,11 +95,11 @@ function uc_bitpay_settings_form()
 		'#title'         => t('Alert email address'),
 		'#default_value' => variable_get('uc_bitpay_alert_email', ''),
 		'#description'   =>
-			t('Email address to receive alerts direct from the Bitpay module. The most appropriate recipient would be your website developer.'),
+			t('Email address to receive alerts direct from the GloBee module. The most appropriate recipient would be your website developer.'),
 	);
 	$form['admin']['uc_bitpay_copy_notify_emails'] = array(
 		'#type'          => 'checkbox',
-		'#title'         => t('Send a message to the alert email whenever Bitpay sends an invoice notification.'),
+		'#title'         => t('Send a message to the alert email whenever GloBee sends an invoice notification.'),
 		'#default_value' => variable_get('uc_bitpay_copy_notify_emails', FALSE),
 	);
 	$form['admin']['uc_bitpay_full_notify'] = array(
@@ -111,14 +111,14 @@ function uc_bitpay_settings_form()
 			1 => t('YES, send notifications any time an invoice status changes.')
 		),
 		'#description' =>
-			t('Whether you want to receive notifications for every status change for every Bitpay invoice. It is safe to choose NO, but if you wish for more updates you should choose YES.'),
+			t('Whether you want to receive notifications for every status change for every GloBee invoice. It is safe to choose NO, but if you wish for more updates you should choose YES.'),
 	);
 	$form['admin']['uc_bitpay_base_url'] = array(
 		'#type'          => 'textfield',
 		'#title'         => t('Store website base URL'),
 		'#default_value' => variable_get('uc_bitpay_base_url', $base_url),
 		'#description'   =>
-			t("Base URL of the store website. It is presented here primarily as an option to force the use of the 'https' version of your website if it doesn't automatically use it. Bitpay ") . '<b>' . t('must') . '</b>' . t(" use 'https', so please add the 's' if needed. For reference, the store's internal base URL is normally: ") . '<b>' . $base_url . '</b>',
+			t("Base URL of the store website. It is presented here primarily as an option to force the use of the 'https' version of your website if it doesn't automatically use it. GloBee ") . '<b>' . t('must') . '</b>' . t(" use 'https', so please add the 's' if needed. For reference, the store's internal base URL is normally: ") . '<b>' . $base_url . '</b>',
 	);
 	$form['admin']['uc_bitpay_debug_mode'] = array(
 		'#type'          => 'radios',
@@ -141,14 +141,14 @@ function uc_bitpay_settings_form()
 		'#type'          => 'textfield',
 		'#title'         => t('Redirect URL'),
 		'#default_value' => variable_get('uc_bitpay_redirect_url', ''),
-		'#description'   => t('URL to redirect buyers to after a Bitpay purchase. Not necessary since the payment feature appears inside the checkout order review, but usually set to the store URL (or the user cart) just in case the buyer clicks it.'),
+		'#description'   => t('URL to redirect buyers to after a GloBee purchase. Not necessary since the payment feature appears inside the checkout order review, but usually set to the store URL (or the user cart) just in case the buyer clicks it.'),
 	);
 	$form['general']['uc_bitpay_currency'] = array(
 		'#type'          => 'select',
 		'#title'         => t('Store currency'),
 		'#options'       => _uc_bitpay_currency_array(),
 		'#default_value' => variable_get('uc_bitpay_currency', 'BTC'),
-		'#description'   => t('The currency the store sets prices in. These prices are automatically converted to the current bitcoin price by Bitpay. Merchants will receive the full value of the purchase (minus Bitpay fees) without risk of cross-currency price volatility.'),
+		'#description'   => t('The currency the store sets prices in. These prices are automatically converted to the current bitcoin price by GloBee. Merchants will receive the full value of the purchase without risk of cross-currency price volatility.'),
 	);
 	$form['general']['uc_bitpay_physical'] = array(
 		'#type'    => 'radios',
@@ -175,7 +175,7 @@ function uc_bitpay_settings_form()
 		'#type'          => 'textfield',
 		'#title'         => t('Bitcoin handling fee amount'),
 		'#default_value' => variable_get('uc_bitpay_fee_amt', '0'),
-		'#description'   => t('The actual amount of the percent, multiplier or addition to be added to each bitcoin purchase. NOTE: If you want the customer to cover a Bitpay fee of 3.99%, 2.69% or 0.99%, you should charge a handling fee of 4.16%, 2.77% or 1%, respectively (this assumes no other fees or extra line items will be collected. Adjust accordingly.)'),
+		'#description'   => t('The actual amount of the percent, multiplier or addition to be added to each bitcoin purchase.)'),
 	);
 	$form['general']['uc_bitpay_txn_speed'] = array(
 		'#type'    => 'radios',
@@ -186,7 +186,7 @@ function uc_bitpay_settings_form()
 			'high'   => t('HIGH: reasonably safe for small purchases, instant confirmation (please see warning below)')
 		),
 		'#default_value' => variable_get('uc_bitpay_txn_speed', 'low'),
-		'#description'   => t('Speed at which the bitcoin transaction registers as "confirmed" to the store. This overrides your merchant settings on the Bitpay website. ') . '<b>' . t('WARNING: ') . '</b>' . t('High and medium-speed transactions allow the slight possibility of a fraudulent double-spend. Fraudulent medium-speed transactions are extremely unlikely, and require enormous amounts of computing power. Fraudulent high-speed transactions are unlikely, and require some degree of technical effort to achieve. IT IS STRONGLY RECOMMENDED THAT HIGH-SPEED TRANSACTIONS BE AVOIDED WHEN POSSIBLE, AND THAT THEY ONLY INVOLVE SMALL PURCHASE AMOUNTS. ') . '<b>' . t('IF YOU ARE UNSURE OF WHAT SPEED TO USE, PLEASE USE THE "LOW" TRANSACTION SPEED.') . '</b>'
+		'#description'   => t('Speed at which the bitcoin transaction registers as "confirmed" to the store. This overrides your merchant settings on the GloBee website. ') . '<b>' . t('WARNING: ') . '</b>' . t('High and medium-speed transactions allow the slight possibility of a fraudulent double-spend. Fraudulent medium-speed transactions are extremely unlikely, and require enormous amounts of computing power. Fraudulent high-speed transactions are unlikely, and require some degree of technical effort to achieve. IT IS STRONGLY RECOMMENDED THAT HIGH-SPEED TRANSACTIONS BE AVOIDED WHEN POSSIBLE, AND THAT THEY ONLY INVOLVE SMALL PURCHASE AMOUNTS. ') . '<b>' . t('IF YOU ARE UNSURE OF WHAT SPEED TO USE, PLEASE USE THE "LOW" TRANSACTION SPEED.') . '</b>'
 	);
 
 	return $form;

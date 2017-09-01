@@ -203,7 +203,7 @@ function bpGetInvoice($invoiceId, $apiKey=false)
         $apiKey = $bpOptions['apiKey'];		
     }
 
-    $response = bpCurl('https://bitpay.com/api/invoice/'.$invoiceId, $apiKey);
+    $response = bpCurl('https://globee.com/api/invoice/'.$invoiceId, $apiKey);
 
     if (is_string($response))
     {

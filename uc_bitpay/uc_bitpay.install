@@ -53,7 +53,7 @@ function uc_bitpay_requirements($phase)
         if (!$has_curl)
         {
             $requirements['uc_bitpay_curl']['severity']    = REQUIREMENT_ERROR;
-            $requirements['uc_bitpay_curl']['description'] = $t("Bitpay requires the PHP <a href = '!curl_url'>cURL</a> library.", array('!curl_url' => 'http://php.net/manual/en/curl.setup.php'));
+            $requirements['uc_bitpay_curl']['description'] = $t("GloBee requires the PHP <a href = '!curl_url'>cURL</a> library.", array('!curl_url' => 'http://php.net/manual/en/curl.setup.php'));
         }
     }
 
@@ -70,10 +70,10 @@ function uc_bitpay_schema()
 {
     $schema = array();
     $schema['uc_payment_bitpay'] = array(
-        'description' => 'Stores Bitpay payment information.',
+        'description' => 'Stores GloBee payment information.',
         'fields' => array(
             'invoice_id' => array(
-                'description' => 'Primary key: the Bitpay invoice ID.',
+                'description' => 'Primary key: the GloBee invoice ID.',
                 'type'        => 'varchar',
                 'length'      => 127,
                 'not null'    => TRUE,
